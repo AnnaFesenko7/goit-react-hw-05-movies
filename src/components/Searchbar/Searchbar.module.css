@@ -1,0 +1,37 @@
+.form__thumb {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  width: 30vw;
+  position: relative;
+}
+
+.form__input {
+  height: 40px;
+  min-width: 100%;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 70px;
+  border: none;
+  outline: none;
+}
+
+.button {
+  display: inline-block;
+  width: 80px;
+  height: 100%;
+  margin: 0;
+
+  /* border: none; */
+  outline: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* background-color: transparent; */
+
+  line-height: 0;
+  padding: 0;
+}
