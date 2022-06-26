@@ -8,7 +8,7 @@ function MovieDetailsView() {
 
   const { movieId } = useParams();
   const navigate = useNavigate();
-  console.log(navigate);
+
   useEffect(() => {
     moviesSearchService
       .FetchMovieDetailsApi(movieId)

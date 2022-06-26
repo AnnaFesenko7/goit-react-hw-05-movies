@@ -7,9 +7,16 @@ const dayTrend = '/trending/movie/day';
 
 export function FetchMovieApi() {
   const url = `${BASE_URL}${dayTrend}?api_key=${API_KEY}`;
-  return fetchService(url).then(data => {
-    return data.results;
-  });
+  return fetchService(url)
+    .then(data => {
+      if (data.total_pages === 0) {
+        throw Error(data.statusText);
+      }
+      return data;
+    })
+    .then(data => {
+      return data.results;
+    });
 }
 
 export function FetchMovieDetailsApi(movieId) {
@@ -27,7 +34,14 @@ export function FetchReviewsApi(movieId) {
 }
 export function SearchMovieByName(searchQuery) {
   const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${searchQuery}`;
-  return fetchService(url).then(data => data.results);
+  return fetchService(url)
+    .then(data => {
+      if (data.total_pages === 0) {
+        throw Error(data.statusText);
+      }
+      return data;
+    })
+    .then(data => data.results);
 }
 
 function fetchService(url) {
@@ -37,11 +51,4 @@ function fetchService(url) {
     }
     return r.json();
   });
-  // .then(data => {
-  //   if (data.total_pages === 0) {
-  //     throw Error(data.statusText);
-  //   }
-
-  //   return data;
-  // });
 }

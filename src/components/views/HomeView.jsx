@@ -5,12 +5,10 @@ import * as moviesSearchService from '../../services/fetchMoviesApi';
 
 function HomeView() {
   const [movies, setMovies] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    moviesSearchService
-      .FetchMovieApi()
-
-      .then(setMovies);
+    moviesSearchService.FetchMovieApi().then(setMovies).catch(setError);
   }, []);
 
   return (
@@ -25,10 +23,9 @@ function HomeView() {
           ))}
         </ul>
       )}
+
       <hr />
-      {/* <Route path="/movies" element={<MoviesView />}>
-        <Route path="/movies:" element={<MoviesView />} />
-      </Route> */}
+      {error && <strong>{error}</strong>}
     </>
   );
 }
