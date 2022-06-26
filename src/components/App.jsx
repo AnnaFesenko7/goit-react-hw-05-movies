@@ -6,13 +6,12 @@ import { Routes, Route } from 'react-router-dom';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import { ThreeDots } from 'react-loader-spinner';
 
-import NotFound from './NotFound/NotFound';
-
 const HomeView = lazy(() => import('./views/HomeView'));
 const MoviesView = lazy(() => import('./views/MoviesView'));
 const MovieDetailsView = lazy(() => import('./views/MovieDetailsView'));
 const CastView = lazy(() => import('./views/CastView'));
 const ReviewsView = lazy(() => import('./views/ReviewsView'));
+const NotFound = lazy(() => import('./views/NotFound'));
 
 export const App = () => {
   return (

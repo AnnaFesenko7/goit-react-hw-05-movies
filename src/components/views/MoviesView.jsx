@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import SearchMoviesList from '../views/SearchMoviesList';
 
 import Searchbar from 'components/Searchbar';
-
+import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -32,6 +32,11 @@ function MoviesView() {
       <Searchbar onSubmitClick={onSubmitClick} />
 
       {searchQuery && <SearchMoviesList searchQuery={searchQuery} />}
+      <ToastContainer
+        closeButton={false}
+        position="bottom-right"
+        autoClose={3000}
+      />
     </>
   );
 }
