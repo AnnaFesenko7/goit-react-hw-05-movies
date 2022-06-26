@@ -6,14 +6,12 @@ export default function SearchMoviesList({ searchQuery }) {
   const [movies, setMovies] = useState(null);
   // const location = useLocation();
   // const searchQuery = new URLSearchParams(location.search).get('query') ?? null;
-  console.log('searchQuery in SearchMoviesList', searchQuery);
 
   useEffect(() => {
     searchQuery &&
       moviesSearchService.SearchMovieByName(searchQuery).then(setMovies);
   }, [searchQuery]);
 
-  console.log(movies);
   return (
     <>
       {!movies && <h2>Загружаем...</h2>}
