@@ -8,6 +8,7 @@ function MovieDetailsView() {
 
   const { movieId } = useParams();
   const navigate = useNavigate();
+  console.log(navigate);
   useEffect(() => {
     moviesSearchService
       .FetchMovieDetailsApi(movieId)
@@ -46,10 +47,14 @@ function MovieDetailsView() {
       <h2>Additional information</h2>
       <ul>
         <li>
-          <Link to={`cost`}>Cost</Link>
+          <Link to={`cost`} replace={true}>
+            Cost
+          </Link>
         </li>
         <li>
-          <Link to={`reviews`}>Reviews</Link>
+          <Link to={`reviews`} replace={true}>
+            Reviews
+          </Link>
         </li>
       </ul>
       <hr />
