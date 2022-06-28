@@ -12,7 +12,7 @@ export default function SearchMoviesList({ searchQuery }) {
   useEffect(() => {
     searchQuery &&
       moviesSearchService
-        .SearchMovieByName(searchQuery)
+        .SearchMovieByName(searchQuery.toLowerCase())
         .then(r => {
           setMovies(r);
           setError(null);

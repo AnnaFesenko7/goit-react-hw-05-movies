@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function MoviesView() {
   const [searchQuery, setSearchQuery] = useState('');
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -34,7 +35,11 @@ function MoviesView() {
 
   return (
     <>
-      <Searchbar onSubmitClick={onSubmitClick} prevSearchQuery={searchQuery} />
+      <Searchbar
+        onSubmitClick={onSubmitClick}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
 
       {searchQuery && <SearchMoviesList searchQuery={searchQuery} />}
 

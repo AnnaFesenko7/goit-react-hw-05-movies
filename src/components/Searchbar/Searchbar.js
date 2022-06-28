@@ -1,18 +1,25 @@
 import s from './Searchbar.module.css';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
-function Searchbar({ onSubmitClick, prevSearchQuery }) {
-  const [searchQuery, setSearchQuery] = useState(prevSearchQuery);
-
+function Searchbar({ onSubmitClick, searchQuery, setSearchQuery }) {
+  // const [searchQuery, setSearchQuery] = useState(prevSearchQuery);
+  const [inputValue, setInputValue] = useState(null);
+  console.log(searchQuery);
   const handleSubjectChange = event => {
-    setSearchQuery(event.currentTarget.value);
+    setInputValue(event.currentTarget.value);
   };
+  useEffect(() => {
+    if (inputValue === null && searchQuery !== '') {
+      setInputValue(searchQuery);
+    }
+  }, [searchQuery, inputValue]);
 
   const handleSubmit = event => {
     event.preventDefault();
 
-    onSubmitClick(searchQuery);
+    onSubmitClick(inputValue);
     // setSearchQuery('');
   };
 
@@ -22,7 +29,7 @@ function Searchbar({ onSubmitClick, prevSearchQuery }) {
         className={s.form__input}
         type="text"
         name="searchQuery"
-        value={searchQuery}
+        value={inputValue || ''}
         onChange={handleSubjectChange}
       />
       <button className={s.button} type="submit">
