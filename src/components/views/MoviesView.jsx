@@ -35,11 +35,7 @@ function MoviesView() {
 
   return (
     <>
-      <Searchbar
-        onSubmitClick={onSubmitClick}
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-      />
+      <Searchbar onSubmitClick={onSubmitClick} searchQuery={searchQuery} />
 
       {searchQuery && <SearchMoviesList searchQuery={searchQuery} />}
 

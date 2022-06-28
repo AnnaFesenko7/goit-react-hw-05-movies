@@ -3,8 +3,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
-function Searchbar({ onSubmitClick, searchQuery, setSearchQuery }) {
-  // const [searchQuery, setSearchQuery] = useState(prevSearchQuery);
+function Searchbar({ onSubmitClick, searchQuery }) {
   const [inputValue, setInputValue] = useState(null);
   console.log(searchQuery);
   const handleSubjectChange = event => {
