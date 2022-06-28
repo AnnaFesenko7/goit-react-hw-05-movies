@@ -17,7 +17,10 @@ export default function SearchMoviesList({ searchQuery }) {
           setMovies(r);
           setError(null);
         })
-        .catch(setError);
+        .catch(rej => {
+          setError(rej);
+          setMovies(null);
+        });
   }, [searchQuery]);
 
   return (

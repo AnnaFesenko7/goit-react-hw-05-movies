@@ -2,8 +2,8 @@ import s from './Searchbar.module.css';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function Searchbar({ onSubmitClick }) {
-  const [searchQuery, setSearchQuery] = useState('');
+function Searchbar({ onSubmitClick, preSearchQuery }) {
+  const [searchQuery, setSearchQuery] = useState(preSearchQuery);
 
   const handleSubjectChange = event => {
     setSearchQuery(event.currentTarget.value.toLowerCase());

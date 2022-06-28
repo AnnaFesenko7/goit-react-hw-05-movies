@@ -18,9 +18,6 @@ function MoviesView() {
   }, [location.search]);
 
   const onSubmitClick = newQuery => {
-    console.log(newQuery);
-
-    console.log(newQuery);
     if (newQuery.trim() === '') {
       toast.error('Enter what you want to find ', {
         position: 'top-right',
@@ -30,16 +27,17 @@ function MoviesView() {
       });
       return;
     }
-    console.log(newQuery);
+
     newQuery && setSearchQuery(newQuery);
     navigate(`?&query=${newQuery}`);
   };
 
   return (
     <>
-      <Searchbar onSubmitClick={onSubmitClick} />
+      <Searchbar onSubmitClick={onSubmitClick} preSearchQuery={searchQuery} />
 
       {searchQuery && <SearchMoviesList searchQuery={searchQuery} />}
+
       <ToastContainer
         closeButton={false}
         position="bottom-right"
