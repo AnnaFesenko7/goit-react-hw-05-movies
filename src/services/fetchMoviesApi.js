@@ -33,7 +33,7 @@ export function FetchReviewsApi(movieId) {
   return fetchService(url).then(data => data.results);
 }
 export function SearchMovieByName(searchQuery) {
-  const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${searchQuery}`;
+  const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${searchQuery.toLowerCase()}`;
   return fetchService(url)
     .then(data => {
       if (data.total_pages === 0) {
