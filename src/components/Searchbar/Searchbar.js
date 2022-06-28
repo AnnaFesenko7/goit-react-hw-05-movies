@@ -13,7 +13,7 @@ function Searchbar({ onSubmitClick }) {
     event.preventDefault();
 
     onSubmitClick(searchQuery);
-    setSearchQuery('');
+    // setSearchQuery('');
   };
 
   return (

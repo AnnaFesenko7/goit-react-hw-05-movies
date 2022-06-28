@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import SearchMoviesList from '../views/SearchMoviesList';
 
 import Searchbar from 'components/Searchbar';
@@ -9,11 +9,19 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function MoviesView() {
   const [searchQuery, setSearchQuery] = useState('');
-
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const onSubmitClick = searchQuery => {
-    if (searchQuery.trim() === '') {
+  useEffect(() => {
+    const query = new URLSearchParams(location.search)?.get('query');
+    query && setSearchQuery(query);
+  }, [location.search]);
+
+  const onSubmitClick = newQuery => {
+    console.log(newQuery);
+
+    console.log(newQuery);
+    if (newQuery.trim() === '') {
       toast.error('Enter what you want to find ', {
         position: 'top-right',
         pauseOnHover: true,
@@ -22,9 +30,9 @@ function MoviesView() {
       });
       return;
     }
-
-    navigate(`?&query=${searchQuery}`);
-    setSearchQuery(searchQuery);
+    console.log(newQuery);
+    newQuery && setSearchQuery(newQuery);
+    navigate(`?&query=${newQuery}`);
   };
 
   return (

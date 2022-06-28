@@ -8,8 +8,6 @@ import { ThreeDots } from 'react-loader-spinner';
 export default function SearchMoviesList({ searchQuery }) {
   const [movies, setMovies] = useState(null);
   const [error, setError] = useState(null);
-  // const location = useLocation();
-  // const searchQuery = new URLSearchParams(location.search).get('query') ?? null;
 
   useEffect(() => {
     searchQuery &&
